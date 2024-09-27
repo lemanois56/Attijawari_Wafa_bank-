@@ -44,7 +44,7 @@ export let
         tooltip: {
             enabled: false,
         },
-        colors: ["rgb(132, 90, 223)"],
+        colors: ["rgb(78, 172, 76)"],
 
     },
     /* No Of Investments Chart */
@@ -509,7 +509,7 @@ export let
                 format: 'dd MMM yyyy'
             }
         },
-        colors: ["rgb(132, 90, 223)"],
+        colors: ["rgb(78, 172, 76)"],
         stroke: {
             width: [1.2],
             curve: ['smooth']

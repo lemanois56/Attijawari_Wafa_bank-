@@ -109,7 +109,7 @@ export
         tooltip: {
             enabled: false,
         },
-        colors: ["rgb(132, 90, 223)"],
+        colors: ["rgb(78, 172, 76)"],
     },
 
 
@@ -624,7 +624,7 @@ export
             label: 'My First Dataset',
             data: [32, 27, 25, 16],
             backgroundColor: [
-                'rgb(132, 90, 223)',
+                'rgb(78, 172, 76)',
                 'rgb(35, 183, 229)',
                 'rgb(38, 191, 148)',
                 'rgb(245, 184, 73)',

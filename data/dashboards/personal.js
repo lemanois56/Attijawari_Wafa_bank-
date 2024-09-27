@@ -49,7 +49,7 @@ export let
                 show: false,
             }
         },
-        colors: ["rgb(132, 90, 223)"],
+        colors: ["rgb(78, 172, 76)"],
         stroke: {
             width: [1],
         },

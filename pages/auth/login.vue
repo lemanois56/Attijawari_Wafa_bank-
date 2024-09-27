@@ -108,24 +108,6 @@ export default {
                 <button @click.prevent="login" class="btn btn-lg btn-primary">Se connecter</button>
               </div>
             </div>
-            <div class="text-center mt-3">
-              <p class="fs-12 text-muted">Pas encore de compte ? <NuxtLink to="/authentication/sign-up/basic" class="text-primary">Inscrivez-vous</NuxtLink>
-              </p>
-            </div>
-            <div class="text-center my-3 authentication-barrier">
-              <span>OU</span>
-            </div>
-            <div class="btn-list text-center">
-              <button class="btn btn-icon btn-light">
-                <i class="ri-facebook-line fw-bold text-dark op-7"></i>
-              </button>
-              <button class="btn btn-icon btn-light">
-                <i class="ri-google-line fw-bold text-dark op-7"></i>
-              </button>
-              <button class="btn btn-icon btn-light">
-                <i class="ri-twitter-line fw-bold text-dark op-7"></i>
-              </button>
-            </div>
           </div>
         </div>
       </div>

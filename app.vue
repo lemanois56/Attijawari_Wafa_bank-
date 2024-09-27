@@ -20,6 +20,10 @@ useHead({
 .me-5 {
   margin-inline-end: 3rem !important;
 }
+
+:root {
+  --primary-rgb: 78, 172, 76; /* Définit la couleur primaire en rouge */
+}
 </style>
 
 
