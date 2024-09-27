@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import crm from "./dashboard/overview.vue";
+import overview from "./dashboard/overview.vue";
 import { useRouter } from 'vue-router';
 import auth from '@/middleware/auth';
 
