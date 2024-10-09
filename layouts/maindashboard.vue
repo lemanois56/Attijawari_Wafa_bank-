@@ -10,7 +10,7 @@
               <!-- Start::page-header -->
               <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
                 <div>
-                    <p class="fw-semibold fs-18 mb-0">Bon retour Maelle Gonzalez!</p>
+                    <p class="fw-semibold fs-18 mb-0">Bon retour {{fullname}}!</p>
                     <span class="fs-semibold text-muted">Dernière connexion: {{currentDateTime}}.</span>
                   <p class="fw-semibold text-danger mb-0">Compte bloqué</p>
                 </div>
@@ -52,8 +52,11 @@ export default {
 </script>
 <script lang="ts" setup>
 
+import * as bankData from '@/data/financialData.js';
+import {ref} from "vue";
 // Créer une référence pour stocker la date et l'heure actuelle
 const currentDateTime = ref('');
+const fullname = ref(bankData.fullname);
 
 // Fonction pour formater la date et l'heure sans les secondes
 const getCurrentDateTime = () => {

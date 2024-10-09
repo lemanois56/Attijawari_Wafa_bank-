@@ -12,12 +12,12 @@
                 <div class="header-element">
                     <div class="horizontal-logo">           
                         <NuxtLink  to='/' class="header-logo">
-                            <img src="https://mabanque.bnpparibas/content/dam/mabanque/generique/bnp-alone.png" alt="logo" class="desktop-logo">
-                            <img src="https://mabanque.bnpparibas/content/dam/mabanque/generique/bnp-alone.png" alt="logo" class="toggle-logo">
-                            <img src="https://mabanque.bnpparibas/content/dam/mabanque/generique/bnp-alone.png" alt="logo" class="desktop-dark">
-                            <img src="https://mabanque.bnpparibas/content/dam/mabanque/generique/bnp-alone.png" alt="logo" class="toggle-dark">
-                            <img src="https://mabanque.bnpparibas/content/dam/mabanque/generique/bnp-alone.png" alt="logo" class="desktop-white">
-                            <img src="https://mabanque.bnpparibas/content/dam/mabanque/generique/bnp-alone.png" alt="logo" class="toggle-white">
+                            <img :src="logoUrl" alt="logo" class="desktop-logo">
+                            <img :src="logoUrl" alt="logo" class="toggle-logo">
+                            <img :src="logoUrl" alt="logo" class="desktop-dark">
+                            <img :src="logoUrl" alt="logo" class="toggle-dark">
+                            <img :src="logoUrl" alt="logo" class="desktop-white">
+                            <img :src="logoUrl" alt="logo" class="toggle-white">
                         </NuxtLink>
                     </div>
                 </div>
@@ -382,7 +382,7 @@
                                     <img src="https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-300x300.jpg" alt="img" width="32" height="32" class="rounded-circle">
                                 </div>
                                 <div class="d-sm-block d-none">
-                                    <p class="fw-semibold mb-0 lh-1">Maelle Gonzalez</p>
+                                    <p class="fw-semibold mb-0 lh-1">{{fullname}}</p>
                                     <span class="op-7 fw-normal d-block fs-11">Compte personnel</span>
                                 </div>
                             </div>
@@ -476,6 +476,7 @@
 import { switcherStore } from '@/stores/switcher';
 import { useAuthStore } from '@/stores/auth'; // import the auth store we just created
 import { notificationList, cartList } from '@/data/headerdata.js';
+import * as bankData from '@/data/financialData.js';
 export default {
     setup() {
         const switcher = switcherStore();
@@ -500,6 +501,8 @@ export default {
         return {
             notificationList, cartList,
             isFullScreen: false,
+            fullname: bankData.fullname,
+            logoUrl: bankData.logoUrl
         }
     },
     methods: {

@@ -22,7 +22,7 @@ useHead({
 }
 
 :root {
-  --primary-rgb: 0, 62, 165; /* Définit la couleur primaire en rouge */
+  --primary-rgb: 246, 116, 83; /* Définit la couleur primaire en rouge */
 }
 </style>
 

@@ -12,7 +12,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Compte Courant</p>
-            <h5 class="fw-semibold mb-1">{{ checkingAccountBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ bankData.checkingAccountBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -28,7 +28,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Compte Épargne</p>
-            <h5 class="fw-semibold mb-1">{{ savingsAccountBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ bankData.savingsBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -44,7 +44,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Carte de Crédit</p>
-            <h5 class="fw-semibold mb-1">{{ creditCardBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ bankData.creditCardBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -60,7 +60,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Prêts</p>
-            <h5 class="fw-semibold mb-1">{{ loanBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ bankData.loanBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -89,31 +89,12 @@
             </tr>
             </thead>
             <tbody>
-            <!-- Exemples de transactions -->
-            <tr>
-              <td>27/09/2024</td>
-              <td>Achat Supermarché</td>
-              <td class="text-danger">-450,00 MAD</td>
-            </tr>
-            <tr>
-              <td>26/09/2024</td>
-              <td>Virement Salaire</td>
-              <td class="text-success">+12 000,00 MAD</td>
-            </tr>
-            <tr>
-              <td>25/09/2024</td>
-              <td>Paiement Facture Internet</td>
-              <td class="text-danger">-400,00 MAD</td>
-            </tr>
-            <tr>
-              <td>24/09/2024</td>
-              <td>Retrait DAB</td>
-              <td class="text-danger">-2 000,00 MAD</td>
-            </tr>
-            <tr>
-              <td>23/09/2024</td>
-              <td>Transfert de fonds</td>
-              <td class="text-danger">-3 000,00 MAD</td>
+            <tr v-for="(transaction, index) in bankData.recentTransactions" :key="index">
+              <td>{{ transaction.date }}</td>
+              <td>{{ transaction.description }}</td>
+              <td :class="{'text-success': transaction.type === 'Crédit', 'text-danger': transaction.type === 'Débit'}">
+                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}
+              </td>
             </tr>
             </tbody>
           </table>
@@ -130,7 +111,7 @@
           </div>
         </div>
         <div class="card-body">
-          <apexchart type="bar" :options="expensesOptions" :series="expensesSeries"></apexchart>
+          <apexchart type="bar" :options="bankData.expensesOptions" :series="bankData.expensesSeries"></apexchart>
         </div>
       </div>
     </div>
@@ -138,11 +119,13 @@
   <!--End::row-2 -->
 </template>
 
+
 <script lang="ts">
 import PageHeader from "@/components/common/pageheader.vue";
 import auth from '@/middleware/auth';
 import { ref } from 'vue';
 import ApexCharts from 'vue3-apexcharts';
+import * as bankData from '@/data/financialData.js'; // Importer les données depuis le fichier financialData.js
 
 export default {
   setup() {
@@ -150,38 +133,7 @@ export default {
       middleware: [auth],
     });
 
-    // Données pour les différents comptes
-    const checkingAccountBalance = ref(5); // Exemple de solde compte courant
-    const savingsAccountBalance = ref(1210000); // Exemple de solde compte épargne
-    const creditCardBalance = ref(-2500); // Exemple de solde carte de crédit
-    const loanBalance = ref(100000); // Exemple de solde de prêt
-
-    // Données pour le graphique des dépenses
-    const expensesSeries = ref([
-      {
-        name: "Dépenses",
-        data: [500, 700, 800, 1000, 1200, 1500, 1300]
-      }
-    ]);
-    const expensesOptions = ref({
-      chart: {
-        height: 350,
-        type: 'bar'
-      },
-      plotOptions: {
-        bar: {
-          borderRadius: 4,
-          horizontal: false,
-        }
-      },
-      dataLabels: {
-        enabled: false
-      },
-      xaxis: {
-        categories: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
-      }
-    });
-
+    // Données pour passer à PageHeader
     const dataToPass = {
       current: "Vue d'ensemble",
       list: ['Comptes', 'Vue d\'ensemble']
@@ -189,12 +141,7 @@ export default {
 
     return {
       dataToPass,
-      checkingAccountBalance,
-      savingsAccountBalance,
-      creditCardBalance,
-      loanBalance,
-      expensesSeries,
-      expensesOptions
+      bankData // Importer les données du fichier bankData.js directement
     };
   },
   components: {
@@ -203,6 +150,7 @@ export default {
   },
 };
 </script>
+
 
 <style scoped>
 /* Styles communs pour les cartes d'information */

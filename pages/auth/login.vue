@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import * as bankData from '@/data/financialData.js';
 import passwordInput from '@/components/UI/passwordInput.vue';
 import NumericKeypad from '@/components/UI/NumericKeypad.vue';
 import auth from '@/middleware/auth';
@@ -20,6 +21,7 @@ const user = ref({
   password: '',
 });
 
+const logoUrl = ref(bankData.logoUrl)
 const isKeypadVisible = ref(false);
 
 const handleKeypadInput = (value: string) => {
@@ -75,8 +77,8 @@ export default {
     <div class="row justify-content-center align-items-center w-100">
       <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-8 col-sm-10 col-12">
         <div class="my-5 d-flex justify-content-center">
-          <NuxtLink to='/'>
-            <img src="https://www.labanquepostale.fr/content/dam/lbp/images/logo/la-banque-postale/LOGO-LBP-digital-fd-clair-RVB.svg" alt="logo" class="desktop-logo">
+          <NuxtLink style="display: flex; justify-content: center" to='/'>
+            <img :src="logoUrl" alt="logo" class="desktop-logo">
 <!--            <img src="https://mabanque.bnpparibas/content/dam/mabanque/generique/bnp-alone.png" alt="logo" class="desktop-dark">-->
           </NuxtLink>
         </div>
@@ -96,7 +98,7 @@ export default {
                 <div class="input-group">
                   <!-- Champ de mot de passe avec pavé numérique -->
                   <input v-model="user.password" name="password" id="password" placeholder="Mot de passe"
-                         class="form-control form-control-lg" @focus="toggleKeypad" readonly />
+                         class="form-control form-control-lg" type="password" @focus="toggleKeypad" readonly />
                 </div>
               </div>
 

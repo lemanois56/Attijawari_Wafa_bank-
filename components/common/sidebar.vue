@@ -5,12 +5,12 @@
         <!-- Start::main-sidebar-header -->
         <div class="main-sidebar-header" style="background-color: lightgray">
             <NuxtLink  to='/' class="header-logo">
-                <img src="https://www.labanquepostale.fr/content/dam/lbp/images/logo/la-banque-postale/LOGO-LBP-digital-fd-clair-RVB.svg" alt="logo" class="desktop-logo">
-                <img src="https://www.labanquepostale.fr/content/dam/lbp/images/logo/la-banque-postale/LOGO-LBP-digital-fd-clair-RVB.svg" alt="logo" class="toggle-logo">
-                <img src="https://www.labanquepostale.fr/content/dam/lbp/images/logo/la-banque-postale/LOGO-LBP-digital-fd-clair-RVB.svg" alt="logo" class="desktop-dark">
-                <img src="https://www.labanquepostale.fr/content/dam/lbp/images/logo/la-banque-postale/LOGO-LBP-digital-fd-clair-RVB.svg" alt="logo" class="toggle-dark">
-                <img src="https://www.labanquepostale.fr/content/dam/lbp/images/logo/la-banque-postale/LOGO-LBP-digital-fd-clair-RVB.svg" alt="logo" class="desktop-white">
-                <img src="https://www.labanquepostale.fr/content/dam/lbp/images/logo/la-banque-postale/LOGO-LBP-digital-fd-clair-RVB.svg" alt="logo" class="toggle-white">
+                <img :src="logoUrl" alt="logo" class="desktop-logo">
+                <img :src="logoUrl" alt="logo" class="toggle-logo">
+                <img :src="logoUrl" alt="logo" class="desktop-dark">
+                <img :src="logoUrl" alt="logo" class="toggle-dark">
+                <img :src="logoUrl" alt="logo" class="desktop-white">
+                <img :src="logoUrl" alt="logo" class="toggle-white">
             </NuxtLink>
         </div>
         <!-- End::main-sidebar-header -->
@@ -68,6 +68,7 @@
 import RecursiveMenu from '../UI/recursiveMenu.vue';
 import { menuData } from '@/data/menuData.js';
 import { useRouter } from 'vue-router';
+import * as bankData from '@/data/financialData.js';
 export default {
     components: {
         RecursiveMenu,
@@ -84,7 +85,8 @@ export default {
             Nested: [],
             PreviousNumber: null,
             hasParent: false,
-            hasParentLevel: 0
+            hasParentLevel: 0,
+          logoUrl:bankData.logoUrl
         };
     },
     methods: {

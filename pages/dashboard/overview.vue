@@ -1,178 +1,40 @@
 <script setup lang="ts">
-import * as crmData from '@/data/dashboards/crm.js';
-import { DoughnutChart } from 'vue-chart-3';
-import { definePageMeta } from '#imports';
 import { ref } from 'vue';
+import { DoughnutChart } from 'vue-chart-3';
 import ApexCharts from 'vue3-apexcharts';
 import auth from '@/middleware/auth';
+import { definePageMeta } from '#imports';
+import * as bankData from '@/data/financialData.js';
 
 definePageMeta({
   layout: 'maindashboard',
   middleware: [auth],
 });
 
-// Données bancaires et de progression
-const accountBalance = ref("1 210 000,00"); // Solde du compte
-const targetProgress = ref(48); // Progression en %
-
-const creditCardBalance = ref(-2500.00); // Exemple de solde carte de crédit
-const creditCardLimit = ref(5000.00); // Limite carte de crédit
-
-const savingsBalance = ref(1210000); // Solde épargne
-const savingsGrowth = ref(5.2); // Croissance épargne en pourcentage
-
-const recentTransactions = ref([
-  { date: '2023-10-05', description: 'Supermarché Carrefour', amount: -150.30, type: 'Débit' },
-  { date: '2023-10-04', description: 'Virement reçu', amount: 1200.00, type: 'Crédit' },
-  { date: '2023-10-03', description: 'Paiement en ligne Amazon', amount: -89.99, type: 'Débit' },
-  { date: '2023-10-01', description: 'Salaire', amount: 2500.00, type: 'Crédit' },
-  // Ajoutez plus de transactions si nécessaire
-]);
-
-const spendingData = {
-  labels: ['Alimentation', 'Transport', 'Loisirs', 'Factures', 'Autres'],
-  datasets: [{
-    data: [500, 200, 300, 400, 150],
-    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF']
-  }]
-};
-
-// Options pour le cercle de progression
-const progressOptions = ref({
-  chart: {
-    type: 'radialBar',
-    height: 120,
-    width: 120,
-    sparkline: {
-      enabled: true
-    }
-  },
-  plotOptions: {
-    radialBar: {
-      startAngle: -90,
-      endAngle: 90,
-      hollow: {
-        margin: 0,
-        size: "60%",
-        background: "transparent"
-      },
-      track: {
-        background: "#fff",
-        strokeWidth: '97%',
-        margin: 5,
-        dropShadow: {
-          enabled: false,
-        }
-      },
-      dataLabels: {
-        show: true,
-        value: {
-          formatter: function (val: number) {
-            return val + "%";
-          },
-          color: "#fff",
-          fontSize: "16px",
-          show: true,
-        }
-      }
-    }
-  },
-  fill: {
-    type: 'solid',
-    colors: ['#ffffff']
-  },
-  stroke: {
-    lineCap: 'round'
-  },
-  labels: ['Progress'],
-  colors: ['#fff'],
-});
-
-const progressSeries = ref([targetProgress.value]); // La progression en %
-
-const balanceOptions = {
-  chart: {
-    type: 'line',
-    toolbar: {
-      show: false
-    },
-    height: 200,
-  },
-  stroke: {
-    curve: 'smooth'
-  },
-  xaxis: {
-    categories: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct']
-  },
-  colors: ['#4BC0C0'],
-};
-
-const balanceSeries = [{
-  name: 'Solde',
-  data: [10000, 12000, 9000, 11000, 13000, 12500, 14000, 13500, 15000, 12500]
-}];
-
-const incomeExpenseOptions = {
-  chart: {
-    type: 'bar',
-    stacked: true,
-    toolbar: {
-      show: false
-    },
-    height: 200,
-  },
-  xaxis: {
-    categories: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct']
-  },
-  colors: ['#28a745', '#dc3545'],
-};
-
-const incomeExpenseSeries = [{
-  name: 'Revenus',
-  data: [2500, 2600, 2400, 2550, 2700, 2650, 2800, 2750, 2900, 2850]
-}, {
-  name: 'Dépenses',
-  data: [2000, 1800, 2100, 1900, 2200, 2000, 2300, 2150, 2400, 2250]
-}];
-
-const financialGoals = ref([
-  { goal: 'Épargner pour les vacances', progress: 60 },
-  { goal: 'Achat d\'une nouvelle voiture', progress: 35 },
-  { goal: 'Constitution d\'un fonds d\'urgence', progress: 80 },
-]);
-
-const latestNews = ref([
-  { title: 'Mise à jour des taux d\'intérêt', date: '2023-10-05' },
-  { title: 'Nouveaux services bancaires mobiles', date: '2023-10-03' },
-  { title: 'Conseils pour économiser', date: '2023-10-01' },
-]);
-
-const recentActivities = ref([
-  {
-    icon: 'bi bi-circle-fill fs-8',
-    iconBg: 'bg-primary-transparent',
-    description: 'Connexion depuis un nouvel appareil',
-    time: 'Il y a 2 heures'
-  },
-  {
-    icon: 'bi bi-circle-fill fs-8',
-    iconBg: 'bg-success-transparent',
-    description: 'Mise à jour de votre profil',
-    time: 'Hier'
-  },
-  {
-    icon: 'bi bi-circle-fill fs-8',
-    iconBg: 'bg-warning-transparent',
-    description: 'Alerte de sécurité',
-    time: 'Il y a 3 jours'
-  },
-]);
+// Données importées depuis bankData.js
+const accountBalance = ref(bankData.accountBalance);
+const fullname = ref(bankData.fullname);
+const targetProgress = ref(bankData.targetProgress);
+const creditCardBalance = ref(bankData.creditCardBalance);
+const creditCardLimit = ref(bankData.creditCardLimit);
+const savingsBalance = ref(bankData.savingsBalance);
+const savingsGrowth = ref(bankData.savingsGrowth);
+const recentTransactions = ref(bankData.recentTransactions);
+const spendingData = bankData.spendingData;
+const progressOptions = ref(bankData.progressOptions);
+const progressSeries = ref(bankData.progressSeries);
+const balanceOptions = bankData.balanceOptions;
+const balanceSeries = bankData.balanceSeries;
+const incomeExpenseOptions = bankData.incomeExpenseOptions;
+const incomeExpenseSeries = bankData.incomeExpenseSeries;
+const financialGoals = ref(bankData.financialGoals);
+const latestNews = ref(bankData.latestNews);
+const recentActivities = ref(bankData.recentActivities);
 </script>
-
 <template>
   <!-- Début du tableau de bord -->
   <div class="row">
-    <!-- Nouvelle carte rouge avec progression -->
+    <!-- Carte Solde Disponible -->
     <div class="col-lg-3 col-md-6">
       <div class="card custom-card progress-card">
         <div class="card-body">
@@ -182,23 +44,23 @@ const recentActivities = ref([
               <h4 class="fw-bold text-white mb-1">{{ accountBalance }} EUR</h4>
               <a href="javascript:void(0);" class="text-white">Voir plus</a>
             </div>
-<!--            <div>-->
-<!--              <apexchart type="radialBar" :options="progressOptions" :series="progressSeries"></apexchart>-->
-<!--            </div>-->
           </div>
         </div>
       </div>
     </div>
-    <!-- Autres cartes d'information réduites -->
+
+    <!-- Carte Carte de Crédit -->
     <div class="col-lg-3 col-md-6">
       <div class="card custom-card info-card">
         <div class="card-body">
           <p class="text-muted mb-0">Carte de Crédit</p>
           <h5 class="fw-semibold mt-1">{{ creditCardBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
-          <p class="mb-0 text-danger fw-semibold">Limite : {{ creditCardBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</p>
+          <p class="mb-0 text-danger fw-semibold">Limite : {{ creditCardLimit.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</p>
         </div>
       </div>
     </div>
+
+    <!-- Carte Compte Épargne -->
     <div class="col-lg-3 col-md-6">
       <div class="card custom-card info-card">
         <div class="card-body">
@@ -208,6 +70,8 @@ const recentActivities = ref([
         </div>
       </div>
     </div>
+
+    <!-- Carte Objectifs Financiers -->
     <div class="col-lg-3 col-md-6">
       <div class="card custom-card info-card">
         <div class="card-body">
@@ -216,7 +80,8 @@ const recentActivities = ref([
         </div>
       </div>
     </div>
-    <!-- Graphiques réduits -->
+
+    <!-- Graphique de l'évolution du solde -->
     <div class="col-xl-6">
       <div class="card custom-card">
         <div class="card-header">
@@ -229,6 +94,8 @@ const recentActivities = ref([
         </div>
       </div>
     </div>
+
+    <!-- Graphique Revenus vs Dépenses -->
     <div class="col-xl-6">
       <div class="card custom-card">
         <div class="card-header">
@@ -241,7 +108,8 @@ const recentActivities = ref([
         </div>
       </div>
     </div>
-    <!-- Transactions récentes réduites et responsives -->
+
+    <!-- Transactions Récentes -->
     <div class="col-xl-6 col-lg-12">
       <div class="card custom-card">
         <div class="card-header d-flex justify-content-between align-items-center">
@@ -275,7 +143,7 @@ const recentActivities = ref([
       </div>
     </div>
 
-    <!-- Objectifs financiers -->
+    <!-- Objectifs Financiers -->
     <div class="col-xl-6">
       <div class="card custom-card">
         <div class="card-header">
@@ -298,7 +166,8 @@ const recentActivities = ref([
         </div>
       </div>
     </div>
-    <!-- Actualités -->
+
+    <!-- Actualités Bancaires -->
     <div class="col-xl-4">
       <div class="card custom-card">
         <div class="card-header">
@@ -317,7 +186,7 @@ const recentActivities = ref([
       </div>
     </div>
 
-    <!-- Graphique des dépenses par catégorie réduit -->
+    <!-- Dépenses par Catégorie -->
     <div class="col-xl-4">
       <div class="card custom-card">
         <div class="card-header">
@@ -331,7 +200,7 @@ const recentActivities = ref([
       </div>
     </div>
 
-    <!-- Activités récentes réduites -->
+    <!-- Activités Récentes -->
     <div class="col-xl-4">
       <div class="card custom-card">
         <div class="card-header">
@@ -358,33 +227,13 @@ const recentActivities = ref([
         </div>
       </div>
     </div>
-  </div> <!-- Fin de la row principale -->
-  <!-- Section de droite -->
-  <div class="col-xxl-3 col-xl-12">
-    <div class="row">
-
-
-      <!-- Offre spéciale réduite -->
-      <div class="col-xl-12">
-        <div class="card custom-card">
-          <img src="https://mabanque.bnpparibas/content/dam/mabanque/rsc/contrib/html/particuliers/home/images/virements_internationaux.jpg" class="card-img-top" alt="Offre spéciale">
-          <div class="card-body text-center">
-            <h6 class="card-title">Profitez de notre nouvelle offre !</h6>
-            <p class="card-text">Obtenez un prêt à taux réduit jusqu'au 31 décembre.</p>
-            <a href="javascript:void(0);" class="btn btn-primary btn-sm">En savoir plus</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> <!-- Fin de la col-xxl-3 -->
-
-  <!-- Fin du tableau de bord -->
+  </div>
 </template>
 
 <style scoped>
 /* Style pour la carte rouge personnalisée */
 .progress-card {
-  background-color: #003ea5; /* Couleur rouge */
+  background-color: #f8c019; /* Couleur rouge */
   border-radius: 10px;
   color: #fff;
   padding: 15px;

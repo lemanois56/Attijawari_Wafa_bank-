@@ -52,7 +52,7 @@ export let
                 show: false,
             },
         },
-        colors: ["rgba(0, 62, 165,0.5)"],
+        colors: ["rgba(246, 90, 59,0.5)"],
         tooltip: {
             enabled: false,
         },
