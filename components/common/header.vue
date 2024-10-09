@@ -382,7 +382,7 @@
                                     <img src="https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-300x300.jpg" alt="img" width="32" height="32" class="rounded-circle">
                                 </div>
                                 <div class="d-sm-block d-none">
-                                    <p class="fw-semibold mb-0 lh-1">Blaise Pascal</p>
+                                    <p class="fw-semibold mb-0 lh-1">Maelle Gonzalez</p>
                                     <span class="op-7 fw-normal d-block fs-11">Compte personnel</span>
                                 </div>
                             </div>

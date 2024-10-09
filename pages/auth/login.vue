@@ -76,7 +76,7 @@ export default {
       <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-8 col-sm-10 col-12">
         <div class="my-5 d-flex justify-content-center">
           <NuxtLink to='/'>
-            <img src="https://mabanque.bnpparibas/content/dam/mabanque/generique/bnp-alone.png" alt="logo" class="desktop-logo">
+            <img src="https://www.labanquepostale.fr/content/dam/lbp/images/logo/la-banque-postale/LOGO-LBP-digital-fd-clair-RVB.svg" alt="logo" class="desktop-logo">
 <!--            <img src="https://mabanque.bnpparibas/content/dam/mabanque/generique/bnp-alone.png" alt="logo" class="desktop-dark">-->
           </NuxtLink>
         </div>
