@@ -121,9 +121,9 @@ export default {
               :checked="switcher.themePrimary == '161, 90, 223' ? true : false">
           </div>
           <div class="form-check switch-select me-3">
-            <input @click="themePrimaryFn('78, 172, 76')" class="form-check-input color-input color-primary-4"
+            <input @click="themePrimaryFn('0, 62, 165')" class="form-check-input color-input color-primary-4"
               type="radio" name="theme-primary" id="switcher-primary3"
-              :checked="switcher.themePrimary == '78, 172, 76' ? true : false">
+              :checked="switcher.themePrimary == '0, 62, 165' ? true : false">
           </div>
           <div class="form-check switch-select me-3">
             <input @click="themePrimaryFn('223, 90, 90')" class="form-check-input color-input color-primary-5"

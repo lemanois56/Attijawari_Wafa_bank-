@@ -14,7 +14,7 @@ export const switcherStore = defineStore({
         headerPosition: 'fixed',        // fixed, scrollable
         menuColor: 'dark',                  // light, dark, color, gradient, transparent
         headerColor: 'light',                // light, dark, color, gradient, transparent
-        themePrimary: '',               // '58, 88, 146', '92, 144, 163', '161, 90, 223', '78, 172, 76', '223, 90, 90'
+        themePrimary: '',               // '58, 88, 146', '92, 144, 163', '161, 90, 223', '0, 62, 165', '223, 90, 90'
         themeBackground: '',
         backgroundImage: '',            // bgimg1, bgimg2, bgimg3, bgimg4, bgimg5
     }),

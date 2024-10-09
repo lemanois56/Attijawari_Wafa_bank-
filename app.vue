@@ -12,7 +12,7 @@ const getImagePath = (imageName: any) => {
   return `${publicPath}${imageName}`;
 }
 useHead({
-  title: 'BNP Paribas Maroc',
+  title: 'Banque Postale',
   link: [{ rel: 'icon', type: 'image/png', href: getImagePath('images/brand-logos/favicon.ico') }]
 })
 </script>
@@ -22,7 +22,7 @@ useHead({
 }
 
 :root {
-  --primary-rgb: 78, 172, 76; /* Définit la couleur primaire en rouge */
+  --primary-rgb: 0, 62, 165; /* Définit la couleur primaire en rouge */
 }
 </style>
 

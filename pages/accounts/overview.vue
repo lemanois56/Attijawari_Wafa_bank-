@@ -12,7 +12,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Compte Courant</p>
-            <h5 class="fw-semibold mb-1">{{ checkingAccountBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ checkingAccountBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -28,7 +28,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Compte Épargne</p>
-            <h5 class="fw-semibold mb-1">{{ savingsAccountBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ savingsAccountBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -44,7 +44,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Carte de Crédit</p>
-            <h5 class="fw-semibold mb-1">{{ creditCardBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ creditCardBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -60,7 +60,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Prêts</p>
-            <h5 class="fw-semibold mb-1">{{ loanBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ loanBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -151,8 +151,8 @@ export default {
     });
 
     // Données pour les différents comptes
-    const checkingAccountBalance = ref(12000); // Exemple de solde compte courant
-    const savingsAccountBalance = ref(15000); // Exemple de solde compte épargne
+    const checkingAccountBalance = ref(5); // Exemple de solde compte courant
+    const savingsAccountBalance = ref(1210000); // Exemple de solde compte épargne
     const creditCardBalance = ref(-2500); // Exemple de solde carte de crédit
     const loanBalance = ref(100000); // Exemple de solde de prêt
 

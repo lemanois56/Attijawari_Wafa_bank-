@@ -11,8 +11,8 @@
             <div>
               <h5 class="fw-bold mb-1">{{ card.bankName }}</h5>
               <p class="text-muted mb-1">**** {{ card.lastDigits }}</p>
-              <h4 class="fw-semibold">{{ card.balance.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h4>
-              <p class="text-muted mb-0">Limite : {{ card.limit.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</p>
+              <h4 class="fw-semibold">{{ card.balance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h4>
+              <p class="text-muted mb-0">Limite : {{ card.limit.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</p>
             </div>
             <div>
               <img :src="`/images/cards/${card.type}.png`" class="card-logo" alt="card-logo">
@@ -50,7 +50,7 @@
               <td>{{ transaction.date }}</td>
               <td>{{ transaction.description }}</td>
               <td :class="transaction.amount > 0 ? 'text-success' : 'text-danger'">
-                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}
+                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}
               </td>
             </tr>
             </tbody>

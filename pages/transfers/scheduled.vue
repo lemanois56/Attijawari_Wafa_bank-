@@ -27,7 +27,7 @@
             <tr v-for="(transfer, index) in scheduledTransfers" :key="index">
               <td>{{ transfer.beneficiary }}</td>
               <td>{{ transfer.iban }}</td>
-              <td>{{ transfer.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</td>
+              <td>{{ transfer.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</td>
               <td>{{ transfer.scheduleDate }}</td>
               <td>{{ transfer.recurring !== 'non' ? transfer.recurring : 'Non' }}</td>
               <td>

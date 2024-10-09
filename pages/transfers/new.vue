@@ -115,7 +115,7 @@
         <div class="card-body">
           <p><strong>Bénéficiaire :</strong> {{ transfer.beneficiary }}</p>
           <p><strong>IBAN :</strong> {{ transfer.iban }}</p>
-          <p><strong>Montant :</strong> {{ transfer.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</p>
+          <p><strong>Montant :</strong> {{ transfer.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</p>
           <p><strong>Date d'exécution :</strong> {{ transfer.executionDate }}</p>
           <p><strong>Motif :</strong> {{ transfer.reason }}</p>
           <p><strong>Virement récurrent :</strong> {{ transfer.recurring !== 'non' ? transfer.recurring : 'Non' }}</p>

@@ -12,13 +12,13 @@ definePageMeta({
 });
 
 // Données bancaires et de progression
-const accountBalance = ref("41 086 278"); // Solde du compte
+const accountBalance = ref("1 210 000,00"); // Solde du compte
 const targetProgress = ref(48); // Progression en %
 
 const creditCardBalance = ref(-2500.00); // Exemple de solde carte de crédit
 const creditCardLimit = ref(5000.00); // Limite carte de crédit
 
-const savingsBalance = ref(8000.00); // Solde épargne
+const savingsBalance = ref(1210000); // Solde épargne
 const savingsGrowth = ref(5.2); // Croissance épargne en pourcentage
 
 const recentTransactions = ref([
@@ -179,7 +179,7 @@ const recentActivities = ref([
           <div class="d-flex align-items-center justify-content-between">
             <div>
               <div class="fw-semibold fs-16 text-white mb-1">Solde Disponible</div>
-              <h4 class="fw-bold text-white mb-1">{{ accountBalance }} MAD</h4>
+              <h4 class="fw-bold text-white mb-1">{{ accountBalance }} EUR</h4>
               <a href="javascript:void(0);" class="text-white">Voir plus</a>
             </div>
 <!--            <div>-->
@@ -194,8 +194,8 @@ const recentActivities = ref([
       <div class="card custom-card info-card">
         <div class="card-body">
           <p class="text-muted mb-0">Carte de Crédit</p>
-          <h5 class="fw-semibold mt-1">{{ creditCardBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h5>
-          <p class="mb-0 text-danger fw-semibold">Limite : {{ creditCardBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</p>
+          <h5 class="fw-semibold mt-1">{{ creditCardBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
+          <p class="mb-0 text-danger fw-semibold">Limite : {{ creditCardBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</p>
         </div>
       </div>
     </div>
@@ -203,7 +203,7 @@ const recentActivities = ref([
       <div class="card custom-card info-card">
         <div class="card-body">
           <p class="text-muted mb-0">Compte Épargne</p>
-          <h5 class="fw-semibold mt-1">{{ savingsBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h5>
+          <h5 class="fw-semibold mt-1">{{ savingsBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
           <p class="mb-0 text-success fw-semibold">+{{ savingsGrowth }}% ce mois</p>
         </div>
       </div>
@@ -384,7 +384,7 @@ const recentActivities = ref([
 <style scoped>
 /* Style pour la carte rouge personnalisée */
 .progress-card {
-  background-color: #196d30; /* Couleur rouge */
+  background-color: #003ea5; /* Couleur rouge */
   border-radius: 10px;
   color: #fff;
   padding: 15px;

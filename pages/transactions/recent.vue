@@ -12,7 +12,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Total Débits</p>
-            <h4 class="fw-semibold mb-1">{{ totalDebits.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h4>
+            <h4 class="fw-semibold mb-1">{{ totalDebits.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h4>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Total Crédits</p>
-            <h4 class="fw-semibold mb-1">{{ totalCredits.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h4>
+            <h4 class="fw-semibold mb-1">{{ totalCredits.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h4>
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Solde Actuel</p>
-            <h4 class="fw-semibold mb-1">{{ currentBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h4>
+            <h4 class="fw-semibold mb-1">{{ currentBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h4>
           </div>
         </div>
       </div>
@@ -84,9 +84,9 @@
                 {{ transaction.type }}
               </td>
               <td :class="transaction.type === 'Crédit' ? 'text-success' : 'text-danger'">
-                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}
+                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}
               </td>
-              <td>{{ transaction.balanceAfter.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</td>
+              <td>{{ transaction.balanceAfter.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</td>
             </tr>
             </tbody>
           </table>
