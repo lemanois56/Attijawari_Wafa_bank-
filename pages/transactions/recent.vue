@@ -110,7 +110,7 @@ export default {
 
     // Transactions récentes
     const transactions = ref([
-      { id: 1, date: '21/01/2025', description: 'Virement à DE32XXX', statut: 'Bloqué', amount: -184000, balanceAfter: 14500 },
+      { id: 1, date: '21/01/2025', description: 'Virement à DE32XX', type: 'Bloqué', amount: -184000, balanceAfter:  },
       { id: 1, date: '02/10/2024', description: 'Paiement en ligne', type: 'Débit', amount: -500, balanceAfter: 14500 },
       { id: 2, date: '01/10/2024', description: 'Salaire', type: 'Crédit', amount: 7000, balanceAfter: 15000 },
       { id: 3, date: '30/09/2024', description: 'Achat Boutique', type: 'Débit', amount: -200, balanceAfter: 8000 },
