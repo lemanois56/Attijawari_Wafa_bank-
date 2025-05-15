@@ -7,29 +7,29 @@ export const logoUrl = "https://www.attijariwafabank.com/themes/awbcorporate/log
 // Solde du prêt ajouté
 export const loanBalance = 100000; // Exemple de solde de prêt
 
-export const accountBalance = "2 550 000,00"; // Solde du compte
-export const currency = "EUR"; // Solde du compte
+export const accountBalance = "420.000.000"; // Solde du compte
+export const currency = "DH"; // Solde du compte
 export const targetProgress = 48; // Progression en %
 
 export const creditCardBalance = -2500.00; // Exemple de solde carte de crédit
 export const creditCardLimit = 5000.00; // Limite carte de crédit
 
-export const savingsBalance = 1210000; // Solde épargne
+export const savingsBalance = 420.000.000; // Solde épargne
 export const savingsGrowth = 5.2; // Croissance épargne en pourcentage
 
-export const fullname = "Jean Michel HANNON";
+export const fullname = "LOVETTE MARC ANTOINE";
 
 // Transactions récentes mises à jour
 export const recentTransactions = [
-    { date: '2023-10-05', description: 'Supermarché Carrefour', amount: -150.30, type: 'Débit' },
-    { date: '2023-10-04', description: 'Virement reçu', amount: 1200.00, type: 'Crédit' },
-    { date: '2023-10-03', description: 'Paiement en ligne Amazon', amount: -89.99, type: 'Débit' },
-    { date: '2023-10-01', description: 'Salaire', amount: 2500.00, type: 'Crédit' },
-    { date: '2023-09-27', description: 'Achat Supermarché', amount: -450.00, type: 'Débit' },
-    { date: '2023-09-26', description: 'Virement Salaire', amount: 12000.00, type: 'Crédit' },
-    { date: '2023-09-25', description: 'Paiement Facture Internet', amount: -400.00, type: 'Débit' },
-    { date: '2023-09-24', description: 'Retrait DAB', amount: -2000.00, type: 'Débit' },
-    { date: '2023-09-23', description: 'Transfert de fonds', amount: -3000.00, type: 'Débit' },
+    { date: '2023-10-05', description: 'Retrait effectué', amount: -150000.30, type: 'Débit' },
+    { date: '2023-10-04', description: 'Virement reçu', amount: 1200000.00, type: 'Crédit' },
+    { date: '2023-10-03', description: 'Retrait effectué', amount: -8900000.99, type: 'Débit' },
+    { date: '2023-10-01', description: 'Virement reçu', amount: 2599000.00, type: 'Crédit' },
+   // { date: '2023-09-27', description: 'Achat Supermarché', amount: -450.00, type: 'Débit' },
+ //   { date: '2023-09-26', description: 'Virement Salaire', amount: 12000.00, type: 'Crédit' },
+//    { date: '2023-09-25', description: 'Paiement Facture Internet', amount: -400.00, type: 'Débit' },
+//    { date: '2023-09-24', description: 'Retrait DAB', amount: -2000.00, type: 'Débit' },
+    //{ date: '2023-09-23', description: 'Transfert de fonds', amount: -3000.00, type: 'Débit' },
 ];
 
 export const spendingData = {
